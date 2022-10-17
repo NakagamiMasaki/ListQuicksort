@@ -593,29 +593,8 @@ TEST(Quicksort, NoKeySelected)
 #pragma endregion
 #pragma region ***** イテレータ間の距離を測る ******
 
-/*
-* 必要になりそうなテスト
-* 
-* 要素が0の時、先頭と末尾を渡す
-* 要素が0の時、先頭と末尾を逆にして渡す
-* 
-* 複数要素があるとき、先頭と末尾を渡す
-* 複数要素があるとき、先頭と末尾を逆にして渡す
-* 
-* 複数要素があるとき、先頭と先頭でも末尾でもないイテレータを渡す
-* 複数要素があるとき、先頭と先頭でも末尾でもないイテレータを逆にして渡す
-* 
-* 複数要素があるとき、先頭でも末尾でもないイテレータと末尾を渡す
-* 複数要素があるとき、先頭でも末尾でもないイテレータと末尾を逆にして渡す
-* 
-* 別のリストのイテレータを渡す
-* 不正なイテレータを渡す
-* 
-* Distance()がconstな関数であることを確認する
-*/
-
 /**
-* @brief	要素数が0の時、Distanceに先頭イテレータと末尾イテレータを渡したときの挙動
+* @brief	要素数が0の時、先頭イテレータと末尾イテレータを渡したときの挙動
 * @details	ID:9
 *			イテレータどうしの距離を測る機能のチェックです。
 *			要素数が0の時、Distanceに先頭イテレータと末尾イテレータを渡した時の挙動を確認します。
@@ -638,7 +617,7 @@ TEST(Distance, NoItem)
 }
 
 /**
-* @brief	要素数が0の時、Distanceに先頭イテレータと末尾イテレータを逆にして渡したときの挙動
+* @brief	要素数が0の時、先頭イテレータと末尾イテレータを逆にして渡したときの挙動
 * @details	ID:10
 *			イテレータどうしの距離を測る機能のチェックです。
 *			要素数が0の時、Distanceに先頭イテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
@@ -661,7 +640,7 @@ TEST(Distance, NoItemRev)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭イテレータと末尾イテレータを渡したときの挙動
+* @brief	複数の要素を持つ時、先頭イテレータと末尾イテレータを渡したときの挙動
 * @details	ID:11
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと末尾イテレータを渡した時の挙動を確認します。
@@ -679,7 +658,7 @@ TEST_F(DistanceF, SomeItem)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭イテレータと末尾イテレータを逆にして渡したときの挙動
+* @brief	複数の要素を持つ時、先頭イテレータと末尾イテレータを逆にして渡したときの挙動
 * @details	ID:12
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
@@ -699,7 +678,7 @@ TEST_F(DistanceF, SomeItemRev)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭イテレータと先頭でも末尾でもないイテレータを渡したときの挙動
+* @brief	複数の要素を持つ時、先頭イテレータと先頭でも末尾でもないイテレータを渡したときの挙動
 * @details	ID:13
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと先頭でも末尾でもないを渡した時の挙動を確認します。
@@ -725,7 +704,7 @@ TEST_F(DistanceF, BeginToCenter)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭イテレータと先頭でも末尾でもないイテレータを逆にして渡したときの挙動
+* @brief	複数の要素を持つ時、先頭イテレータと先頭でも末尾でもないイテレータを逆にして渡したときの挙動
 * @details	ID:14
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと先頭でも末尾でもないを逆にして渡した時の挙動を確認します。
@@ -753,7 +732,7 @@ TEST_F(DistanceF, BeginToCenterRev)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭でも末尾でもないイテレータと末尾イテレータを渡したときの挙動
+* @brief	複数の要素を持つ時、先頭でも末尾でもないイテレータと末尾イテレータを渡したときの挙動
 * @details	ID:15
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭でも末尾でもないイテレータと末尾イテレータを渡した時の挙動を確認します。
@@ -779,7 +758,7 @@ TEST_F(DistanceF, CenterToEnd)
 }
 
 /**
-* @brief	複数の要素を持つ時、Distanceに先頭でも末尾でもないイテレータと末尾イテレータを逆にして渡したときの挙動
+* @brief	複数の要素を持つ時、先頭でも末尾でもないイテレータと末尾イテレータを逆にして渡したときの挙動
 * @details	ID:16
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭でも末尾でもないイテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
@@ -839,20 +818,24 @@ TEST(Distance, InvalidItr)
 	LinkedList<ScoreData> List;
 
 	// 非コンストなイテレータ
-	LinkedList<ScoreData>::Iterator InvalidItr1;
-	LinkedList<ScoreData>::Iterator InvalidItr2;
+	{
+		LinkedList<ScoreData>::Iterator InvalidItr1;
+		LinkedList<ScoreData>::Iterator InvalidItr2;
 
-	auto Dis = List.Distance(InvalidItr1, InvalidItr2);
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-2, Dis);		// -2であることの確認
+		auto Dis = List.Distance(InvalidItr1, InvalidItr2);
+		EXPECT_LT(Dis, 0);		// 0未満であることの確認
+		EXPECT_EQ(-2, Dis);		// -2であることの確認
+	}
 
 	// コンストなイテレータ
-	LinkedList<ScoreData>::Iterator ConstInvalidItr1;
-	LinkedList<ScoreData>::Iterator ConstInvalidItr2;
+	{
+		LinkedList<ScoreData>::Iterator ConstInvalidItr1;
+		LinkedList<ScoreData>::Iterator ConstInvalidItr2;
 
-	Dis = List.Distance(ConstInvalidItr1, ConstInvalidItr2);
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-2, Dis);		// -2であることの確認
+		auto Dis = List.Distance(ConstInvalidItr1, ConstInvalidItr2);
+		EXPECT_LT(Dis, 0);		// 0未満であることの確認
+		EXPECT_EQ(-2, Dis);		// -2であることの確認
+	}
 }
 
 #pragma endregion
