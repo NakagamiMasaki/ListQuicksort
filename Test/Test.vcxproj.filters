@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Test_Quicksort.cpp">
+      <Filter>AutoTest</Filter>
+    </ClCompile>
+    <ClCompile Include="ManualTest_Quicksort.cpp">
+      <Filter>ManualTest</Filter>
+    </ClCompile>
+    <ClCompile Include="ManualTest_List.cpp">
+      <Filter>ManualTest</Filter>
+    </ClCompile>
+    <ClCompile Include="ManualTest_Iterator.cpp">
+      <Filter>ManualTest</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_List.cpp">
+      <Filter>AutoTest</Filter>
+    </ClCompile>
+    <ClCompile Include="Test_Iterator.cpp">
+      <Filter>AutoTest</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ManualTest_Quicksort.h">
+      <Filter>ManualTest</Filter>
+    </ClInclude>
+    <ClInclude Include="ManualTest_List.h">
+      <Filter>ManualTest</Filter>
+    </ClInclude>
+    <ClInclude Include="ManualTest_Iterator.h">
+      <Filter>ManualTest</Filter>
+    </ClInclude>
+    <ClInclude Include="TestHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AutoTest">
+      <UniqueIdentifier>{6a069ec1-c810-486d-92f0-fc0ffe04d743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ManualTest">
+      <UniqueIdentifier>{f03f9a4a-b381-4b5b-ab1a-b8882e804049}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
