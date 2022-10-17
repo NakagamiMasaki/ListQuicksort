@@ -12,7 +12,8 @@
 /**
 * @fn		main(void)
 * @brief	エントリーポイント
-* @return	成功時 : 0 | 失敗時 : 0以外
+* @retval	0    成功時
+* @retval	0以外 失敗時
 */
 int main(void)
 {
