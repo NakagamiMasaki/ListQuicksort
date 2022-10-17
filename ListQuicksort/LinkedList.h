@@ -236,7 +236,7 @@ public:
 	bool Delete(ConstIterator& Itr);
 
 	/**
-	* @brief		全てのデータの削除
+	* @brief	全てのデータの削除
 	*/
 	void Clear(void);
 
@@ -287,7 +287,7 @@ public:
 	* @retval	LIST_DISTANCE_ERROR_INVALID_REFERENCE	指定したイテレータがこのリストを参照していない
 	* @retval	LIST_DISTANCE_ERROR_UNREACHABLE			FirstをインクリメントしてもLastに到達できなかった
 	* @retval	0	First == Last が成立する時
-	* @retval	0 > 2つのイテレータの距離(何回インクリメントしてLastに到達したか)  
+	* @retval	0 > 2つのイテレータの距離(何回インクリメントしてLastに到達したか)
 	*/
 	int Distance(const ConstIterator& First, const ConstIterator& Last) const;
 
