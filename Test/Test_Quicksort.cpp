@@ -598,7 +598,7 @@ TEST(Quicksort, NoKeySelected)
 * @details	ID:9
 *			イテレータどうしの距離を測る機能のチェックです。
 *			要素数が0の時、Distanceに先頭イテレータと末尾イテレータを渡した時の挙動を確認します。
-*			エラー値 : 0未満(-3)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_ITERATOR)が返れば成功です。
 */
 TEST(Distance, NoItem)
 {
@@ -607,13 +607,13 @@ TEST(Distance, NoItem)
 
 	// 非コンストなイテレータ
 	auto Dis = List.Distance(List.GetBegin(), List.GetEnd());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 
 	// コンストなイテレータ
 	Dis = List.Distance(List.GetConstBegin(), List.GetConstEnd());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 }
 
 /**
@@ -621,7 +621,7 @@ TEST(Distance, NoItem)
 * @details	ID:10
 *			イテレータどうしの距離を測る機能のチェックです。
 *			要素数が0の時、Distanceに先頭イテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
-*			エラー値 : 0未満(-3)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_ITERATOR)が返れば成功です。
 */
 TEST(Distance, NoItemRev)
 {
@@ -630,13 +630,13 @@ TEST(Distance, NoItemRev)
 
 	// 非コンストなイテレータ
 	auto Dis = List.Distance(List.GetEnd(), List.GetBegin());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 
 	// コンストなイテレータ
 	Dis = List.Distance(List.GetConstEnd(), List.GetConstBegin());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 }
 
 /**
@@ -662,19 +662,19 @@ TEST_F(DistanceF, SomeItem)
 * @details	ID:12
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
-*			エラー値 : 0未満(-3)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_REFERENCE)が返れば成功です。
 */
 TEST_F(DistanceF, SomeItemRev)
 {
 	// 非コンストなイテレータ
 	auto Dis = pList->Distance(pList->GetEnd(), pList->GetBegin());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 
 	// コンストなイテレータ
 	Dis = pList->Distance(pList->GetConstEnd(), pList->GetConstBegin());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-3, Dis);		// -3であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 }
 
 /**
@@ -708,7 +708,7 @@ TEST_F(DistanceF, BeginToCenter)
 * @details	ID:14
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭イテレータと先頭でも末尾でもないを逆にして渡した時の挙動を確認します。
-*			エラー値 : 0未満(-1)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_UNREACHABLE)が返れば成功です。
 */
 TEST_F(DistanceF, BeginToCenterRev)
 {
@@ -717,8 +717,8 @@ TEST_F(DistanceF, BeginToCenterRev)
 		auto Itr = pList->GetBegin();
 		++Itr;
 		auto Dis = pList->Distance(Itr, pList->GetBegin());
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-1, Dis);		// -1であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_UNREACHABLE, Dis);
 	}
 
 	// コンストなイテレータ
@@ -726,8 +726,8 @@ TEST_F(DistanceF, BeginToCenterRev)
 		auto Itr = pList->GetConstBegin();
 		++Itr;
 		auto Dis = pList->Distance(Itr, pList->GetConstBegin());
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-1, Dis);		// -1であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_UNREACHABLE, Dis);
 	}
 }
 
@@ -762,7 +762,7 @@ TEST_F(DistanceF, CenterToEnd)
 * @details	ID:16
 *			イテレータどうしの距離を測る機能のチェックです。
 *			複数の要素を持つ時、Distanceに先頭でも末尾でもないイテレータと末尾イテレータを逆にして渡した時の挙動を確認します。
-*			エラー値 : 0未満(-3)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_ITERATOR)が返れば成功です。
 */
 TEST_F(DistanceF, CenterToEndRev)
 {
@@ -771,8 +771,8 @@ TEST_F(DistanceF, CenterToEndRev)
 		auto Itr = pList->GetEnd();
 		--Itr;
 		auto Dis = pList->Distance(pList->GetEnd(), Itr);
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-3, Dis);		// -3であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 	}
 
 	// コンストなイテレータ
@@ -780,8 +780,8 @@ TEST_F(DistanceF, CenterToEndRev)
 		auto Itr = pList->GetConstEnd();
 		--Itr;
 		auto Dis = pList->Distance(pList->GetConstEnd(), Itr);
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-3, Dis);		// -3であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_ITERATOR, Dis);
 	}
 }
 
@@ -790,7 +790,7 @@ TEST_F(DistanceF, CenterToEndRev)
 * @details	ID:17
 *			イテレータどうしの距離を測る機能のチェックです。
 *			Distanceに別のリストのイテレータを渡したときの挙動を確認します。
-*			エラー値 : 0未満(-2)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_REFERENCE)が返れば成功です。
 */
 TEST(Distance, DifferentListItr)
 {
@@ -798,12 +798,12 @@ TEST(Distance, DifferentListItr)
 	LinkedList<ScoreData> List2;
 
 	auto Dis = List1.Distance(List2.GetBegin(), List2.GetEnd());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-2, Dis);		// -2であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_REFERENCE, Dis);
 
 	Dis = List1.Distance(List2.GetConstBegin(), List2.GetConstEnd());
-	EXPECT_LT(Dis, 0);		// 0未満であることの確認
-	EXPECT_EQ(-2, Dis);		// -2であることの確認
+	EXPECT_LT(Dis, 0);
+	EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_REFERENCE, Dis);
 }
 
 /**
@@ -811,7 +811,7 @@ TEST(Distance, DifferentListItr)
 * @details	ID:18
 *			イテレータどうしの距離を測る機能のチェックです。
 *			Distanceに別のリストのイテレータを渡したときの挙動を確認します。
-*			エラー値 : 0未満(-2)が返れば成功です。
+*			エラー値 : 0未満(LIST_DISTANCE_ERROR_INVALID_REFERENCE)が返れば成功です。
 */
 TEST(Distance, InvalidItr)
 {
@@ -823,8 +823,8 @@ TEST(Distance, InvalidItr)
 		LinkedList<ScoreData>::Iterator InvalidItr2;
 
 		auto Dis = List.Distance(InvalidItr1, InvalidItr2);
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-2, Dis);		// -2であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_REFERENCE, Dis);
 	}
 
 	// コンストなイテレータ
@@ -833,8 +833,8 @@ TEST(Distance, InvalidItr)
 		LinkedList<ScoreData>::Iterator ConstInvalidItr2;
 
 		auto Dis = List.Distance(ConstInvalidItr1, ConstInvalidItr2);
-		EXPECT_LT(Dis, 0);		// 0未満であることの確認
-		EXPECT_EQ(-2, Dis);		// -2であることの確認
+		EXPECT_LT(Dis, 0);
+		EXPECT_EQ(LIST_DISTANCE_ERROR_INVALID_REFERENCE, Dis);
 	}
 }
 

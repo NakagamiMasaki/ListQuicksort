@@ -17,17 +17,17 @@
 * @brief	LinkedList<DataType>::Distanceに無効な参照を持つイテレータを渡した
 * @note		別のリストのイテレータを渡した場合でも起こる
 */
-#define LIST_DISTANCE_ERROR_INVALID_REFERENCE
+#define LIST_DISTANCE_ERROR_INVALID_REFERENCE (-3)
 
 /**
 * @brief	LinkedList<DataType>::Distanceに不正なイテレータを渡した
 */
-#define LIST_DISTANCE_ERROR_INVALID_ITERATOR
+#define LIST_DISTANCE_ERROR_INVALID_ITERATOR (-2)
 
 /**
 * @brief	LinkedList<DataType>::Distanceに渡したイテレータの First から Last に到達できなかった
 */
-#define LIST_DISTANCE_ERROR_UNREACHABLE
+#define LIST_DISTANCE_ERROR_UNREACHABLE (-1)
 
 //===== クラス定義 =====
 /**
