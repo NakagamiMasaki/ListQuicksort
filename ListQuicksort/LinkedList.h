@@ -12,6 +12,23 @@
 * ・ https://programming-place.net/ppp/contents/algorithm/sort/006.html
 */
 
+//===== 定数・マクロ定義 =====
+/**
+* @brief	LinkedList<DataType>::Distanceに無効な参照を持つイテレータを渡した
+* @note		別のリストのイテレータを渡した場合でも起こる
+*/
+#define LIST_DISTANCE_ERROR_INVALID_REFERENCE
+
+/**
+* @brief	LinkedList<DataType>::Distanceに不正なイテレータを渡した
+*/
+#define LIST_DISTANCE_ERROR_INVALID_ITERATOR
+
+/**
+* @brief	LinkedList<DataType>::Distanceに渡したイテレータの First から Last に到達できなかった
+*/
+#define LIST_DISTANCE_ERROR_UNREACHABLE
+
 //===== クラス定義 =====
 /**
 * @brief	双方向リスト
@@ -265,10 +282,10 @@ public:
 	/**
 	* @brief	2つのイテレータの距離を計算して返す
 	* @details	戻り値がINT_MAXを超えないことを保証する
-	* @note		Firstに 末尾イテレータを指定すると-3が返る
-	* @retval	-3	指定したイテレータが不正なイテレータだった
-	* @retval	-2	指定したイテレータがこのリストを参照していない
-	* @retval	-1	FirstをインクリメントしてもLastに到達できなかった
+	* @note		Firstに 末尾イテレータを指定すると LIST_DISTANCE_ERROR_INVALID_ITERATOR が返る
+	* @retval	LIST_DISTANCE_ERROR_INVALID_ITERATOR	指定したイテレータが不正なイテレータだった
+	* @retval	LIST_DISTANCE_ERROR_INVALID_REFERENCE	指定したイテレータがこのリストを参照していない
+	* @retval	LIST_DISTANCE_ERROR_UNREACHABLE			FirstをインクリメントしてもLastに到達できなかった
 	* @retval	0	First == Last が成立する時
 	* @retval	0 > 2つのイテレータの距離(何回インクリメントしてLastに到達したか)  
 	*/

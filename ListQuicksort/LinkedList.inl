@@ -309,12 +309,12 @@ int LinkedList<DataType>::Distance(const ConstIterator& First, const ConstIterat
 	// このリストへの参照を持っているか?
 	if (First.m_pList != this || Last.m_pList != this)
 	{
-		return -2;
+		return LIST_DISTANCE_ERROR_INVALID_REFERENCE;
 	}
 	// その他、不正なイテレータではないか？
 	if (!First.IsValid())
 	{
-		return -3;
+		return LIST_DISTANCE_ERROR_INVALID_ITERATOR;
 	}
 
 	int Count = 0;						// カウンタ
@@ -333,7 +333,7 @@ int LinkedList<DataType>::Distance(const ConstIterator& First, const ConstIterat
 		// 末尾に到達したか？
 		if (CopiedFirst == EndItr)
 		{
-			return -1;
+			return LIST_DISTANCE_ERROR_UNREACHABLE;
 		}
 
 		// カウンタがオーバーフローしないように止める
