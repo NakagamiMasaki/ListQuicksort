@@ -9,9 +9,6 @@
 #include "LinkedList.h"
 #include "ScoreData.h"
 
-#include <vector>
-#include <algorithm>
-
 /**
 * @fn		main(void)
 * @brief	エントリーポイント
